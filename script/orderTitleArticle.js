@@ -6,10 +6,11 @@ let displayTitle = function () {
         return response.json();
       })
       .then((responseJSON) => {
-        responseJSON["hydra:member"].forEach((article) => {
+        responseJSON["hydra:member"].reverse().forEach((article) => {
             let divArticle = document.createElement('div');
             divArticle.innerHTML += article["title"];
             containerArticle.appendChild(divArticle);
+            console.log(article)
         });
       });
   };
