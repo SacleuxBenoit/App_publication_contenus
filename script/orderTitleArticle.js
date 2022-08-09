@@ -7,10 +7,24 @@ let displayTitle = function () {
       })
       .then((responseJSON) => {
         responseJSON["hydra:member"].reverse().forEach((article) => {
+
+            // create div && paragraph
             let divArticle = document.createElement('div');
-            divArticle.innerHTML += article["title"];
+            let p = document.createElement('p');
+
+            // verify if date exist, if yes : display title && date
+            if(article["published_at"] !== undefined){
+              divArticle.innerHTML += article["title"];
+              p.innerHTML += article["published_at"];
+            }
+
+            // create a div inside containerArticle
             containerArticle.appendChild(divArticle);
-            console.log(article)
+            containerArticle.appendChild(p);
+
+            // console.log() (i'll delete that before merging)
+            console.log(article);
+            console.log(article["published_at"]);
         });
       });
   };
