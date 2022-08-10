@@ -1,32 +1,64 @@
 let containerArticle = document.getElementById('containerArticle');
 
 let displayTitle = function () {
-    fetch("https://127.0.0.1:8000/api/articles", { method: "GET" })
+    fetch("https://127.0.0.1:8000/api/articles?pages=1", { method: "GET" })
       .then(function (response) {
         return response.json();
       })
       .then((responseJSON) => {
-        responseJSON["hydra:member"].reverse().forEach((article) => {
+        responseJSON["hydra:member"].forEach((article) => {
 
             // create div && paragraph
             let divArticle = document.createElement('div');
-            let p = document.createElement('p');
+            let titleArticleP = document.createElement('p');
+            let dateArticleP = document.createElement('p');
 
             // verify if date exist, if yes : display title && date
-            if(article["published_at"] !== undefined){
-              divArticle.innerHTML += article["title"];
-              p.innerHTML += article["published_at"];
+            if(article["published_at"] !== undefined && article["id"]){
+              divArticle.className = "border";
+              titleArticleP.innerHTML += article["title"];
+              titleArticleP.className = "text-xl";
+              dateArticleP.innerHTML += formatDate(article.publishedAt);
+              dateArticleP.className = "text-lg"
             }
 
-            // create a div inside containerArticle
+            // create div && paragraph
             containerArticle.appendChild(divArticle);
-            containerArticle.appendChild(p);
+            divArticle.appendChild(titleArticleP);
+            divArticle.appendChild(dateArticleP);
 
-            // console.log() (i'll delete that before merging)
-            console.log(article);
-            console.log(article["published_at"]);
+            // console.log() @TODO DELETE THAT BEFORE MERGING
+            // log(article);
+            // log(article["published_at"]);
+            // log(article["id"]);
+            // log(formatDate(article.publishedAt))
         });
       });
   };
 
-  document.addEventListener("DOMContentLoaded", displayTitle);
+  
+  // change date format
+  function formatDate(date) {
+    let article_date = new Date(date),
+        month = '' + (article_date.getMonth() + 1),
+        day = '' + article_date.getDate(),
+        year = article_date.getFullYear(),
+        hours = '' + article_date.getHours(),
+        minutes = '' + article_date.getMinutes(),
+        seconds = '' + article_date.getSeconds();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+    if (hours.length < 2)
+        hours = '0' + hours;
+    if (minutes.length < 2)
+        minutes = '0' + minutes;
+    if (seconds.length < 2)
+        seconds = '0' + seconds;
+
+    return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes, seconds].join(':');
+}
+
+document.addEventListener("DOMContentLoaded", displayTitle);
