@@ -2,16 +2,35 @@ let buttonNextPage = document.getElementById('buttonNextPage');
 let containerArticle = document.getElementById('containerArticle');
 let URIapi = 'https://127.0.0.1:8000/api/articles?page=';
 
+// var that will be increment when press button (voir plus)
 let pageNumber = 1;
 
-let displayArticle = function () {
+let displayArticle = function() {
     fetch(URIapi + pageNumber, { method: "GET" })
       .then(function (response) {
         return response.json();
       })
       .then((responseJSON) => {
         let articleArr = responseJSON["hydra:member"];
-        for(let i = 0; i <=19;i++){
+
+        // take article that have a date + sort them
+        articleArr = articleArr.filter(function(x) {
+          if (x.published_at) {
+            return true;
+          }
+        }).sort(function(x,y) {
+          if(x.published_at >= y.published_at){
+            return -1;
+          }else if(x.published_at <= y.published_at){
+            return + 1;
+          }else{
+            return 0;
+          } 
+        })
+
+        // display 10 articles 
+        for(let i = 0; i <= 9;i++){
+
             // create div && paragraph
             let divArticle = document.createElement('div');
             let titleArticleP = document.createElement('p');
@@ -22,16 +41,13 @@ let displayArticle = function () {
             titleArticleP.className = "text-xl";
             dateArticleP.className = "text-lg";
 
-            // verify if date exist, if yes : display title && date
+            // if date exist display it
             if(articleArr[i].published_at !== undefined){
               dateArticleP.innerHTML += formatDate(articleArr[i].publishedAt);
               dateArticleP.className = "pt-2"
-            }else{
-              dateArticleP.innerHTML = "Date non renseigné";
-              dateArticleP.className = "pt-2";
             }
 
-            // create div && paragraph
+            // display div && paragraph
             containerArticle.appendChild(divArticle);
             divArticle.appendChild(titleArticleP);
             divArticle.appendChild(dateArticleP);
@@ -63,9 +79,10 @@ let displayArticle = function () {
     return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes, seconds].join(':');
 }
 
-function nextPage(){
+function nextPage() {
   pageNumber += 1;
   displayArticle();
 }
+
 buttonNextPage.addEventListener("click", nextPage);
-  document.addEventListener("DOMContentLoaded", displayArticle);
+document.addEventListener("DOMContentLoaded", displayArticle);
