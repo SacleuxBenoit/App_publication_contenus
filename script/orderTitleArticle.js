@@ -1,7 +1,11 @@
+let buttonNextPage = document.getElementById('buttonNextPage');
 let containerArticle = document.getElementById('containerArticle');
+let URIapi = 'https://127.0.0.1:8000/api/articles?page='
 
-let displayTitle = function () {
-    fetch("https://127.0.0.1:8000/api/articles?pages=1", { method: "GET" })
+let pageNumber = 1
+
+let displayArticle = function () {
+    fetch(URIapi + pageNumber, { method: "GET" })
       .then(function (response) {
         return response.json();
       })
@@ -13,13 +17,18 @@ let displayTitle = function () {
             let titleArticleP = document.createElement('p');
             let dateArticleP = document.createElement('p');
 
+
+            divArticle.className = "grid p-6 max-w-sm border border-gray-200 m-2 bg-orange-100";
+            titleArticleP.innerHTML += article["title"];
+            titleArticleP.className = "text-xl";
+            dateArticleP.className = "text-lg"
             // verify if date exist, if yes : display title && date
-            if(article["published_at"] !== undefined && article["id"]){
-              divArticle.className = "border";
-              titleArticleP.innerHTML += article["title"];
-              titleArticleP.className = "text-xl";
+            if(article["published_at"] !== undefined){
               dateArticleP.innerHTML += formatDate(article.publishedAt);
-              dateArticleP.className = "text-lg"
+              dateArticleP.className = "pt-2"
+            }else{
+              dateArticleP.innerHTML = "Date non renseigné"
+              dateArticleP.className = "pt-2"
             }
 
             // create div && paragraph
@@ -32,11 +41,10 @@ let displayTitle = function () {
             // log(article["published_at"]);
             // log(article["id"]);
             // log(formatDate(article.publishedAt))
-        });
-      });
-  };
+        })
+      })
+  }
 
-  
   // change date format
   function formatDate(date) {
     let article_date = new Date(date),
@@ -61,4 +69,9 @@ let displayTitle = function () {
     return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes, seconds].join(':');
 }
 
-document.addEventListener("DOMContentLoaded", displayTitle);
+function nextPage(){
+  pageNumber += 1;
+  displayArticle();
+}
+buttonNextPage.addEventListener("click", nextPage)
+document.addEventListener("DOMContentLoaded", displayArticle);
