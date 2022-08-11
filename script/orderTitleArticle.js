@@ -1,8 +1,8 @@
 let buttonNextPage = document.getElementById('buttonNextPage');
 let containerArticle = document.getElementById('containerArticle');
-let URIapi = 'https://127.0.0.1:8000/api/articles?page='
+let URIapi = 'https://127.0.0.1:8000/api/articles?page=';
 
-let pageNumber = 1
+let pageNumber = 1;
 
 let displayArticle = function () {
     fetch(URIapi + pageNumber, { method: "GET" })
@@ -10,42 +10,36 @@ let displayArticle = function () {
         return response.json();
       })
       .then((responseJSON) => {
-        responseJSON["hydra:member"].forEach((article) => {
-
+        let articleArr = responseJSON["hydra:member"];
+        for(let i = 0; i <=19;i++){
             // create div && paragraph
             let divArticle = document.createElement('div');
             let titleArticleP = document.createElement('p');
             let dateArticleP = document.createElement('p');
 
-
-            divArticle.className = "grid p-6 max-w-sm border border-gray-200 m-2 bg-orange-100";
-            titleArticleP.innerHTML += article["title"];
+            divArticle.className = "grid lg:p-6 lg:max-w-sm border border-gray-200 m-2 bg-orange-100";
+            titleArticleP.innerHTML += articleArr[i].title;
             titleArticleP.className = "text-xl";
-            dateArticleP.className = "text-lg"
+            dateArticleP.className = "text-lg";
+
             // verify if date exist, if yes : display title && date
-            if(article["published_at"] !== undefined){
-              dateArticleP.innerHTML += formatDate(article.publishedAt);
+            if(articleArr[i].published_at !== undefined){
+              dateArticleP.innerHTML += formatDate(articleArr[i].publishedAt);
               dateArticleP.className = "pt-2"
             }else{
-              dateArticleP.innerHTML = "Date non renseigné"
-              dateArticleP.className = "pt-2"
+              dateArticleP.innerHTML = "Date non renseigné";
+              dateArticleP.className = "pt-2";
             }
 
             // create div && paragraph
             containerArticle.appendChild(divArticle);
             divArticle.appendChild(titleArticleP);
             divArticle.appendChild(dateArticleP);
-
-            // console.log() @TODO DELETE THAT BEFORE MERGING
-            // log(article);
-            // log(article["published_at"]);
-            // log(article["id"]);
-            // log(formatDate(article.publishedAt))
-        })
+        }
       })
   }
 
-  // change date format
+    // change date format
   function formatDate(date) {
     let article_date = new Date(date),
         month = '' + (article_date.getMonth() + 1),
@@ -73,5 +67,5 @@ function nextPage(){
   pageNumber += 1;
   displayArticle();
 }
-buttonNextPage.addEventListener("click", nextPage)
-document.addEventListener("DOMContentLoaded", displayArticle);
+buttonNextPage.addEventListener("click", nextPage);
+  document.addEventListener("DOMContentLoaded", displayArticle);
