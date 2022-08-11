@@ -1,24 +1,29 @@
 //liaison du JS avec les éléments HTML
 let getTitle = document.getElementById('formTitle')
 let getBody = document.getElementById('formBody')
+let getCategory = document.getElementById('formCategory')
 let getWriter= document.getElementById('formWriter')
 let getDate = document.getElementById('formDate')
 let getTags = document.getElementById('formTags')
+let getTags2 = document.getElementById('formTags2')
 let buttonSubmit = document.querySelector('#submit')
 let buttonLocalSubmit = document.querySelector('#submitLocal')
 //URL de l' API utilisée
 let fetchURL = 'https://127.0.0.1:8000/api/articles'
 
 
+
 function send() { 
+    
     //paramètres enregistrés en BDD
     var parameters = {
         "title": getTitle.value,
         "body": getBody.value,
         "tags": [
-                getTags.value
+                '/api/tags'+  getTags.value, getTags2.value
             ],
-        "writer": getWriter.value,
+        "category":  "/api/categories/" + getCategory.value,
+        "writer":  "/api/writers/" + getWriter.value,
         "publishedAt": getDate.value
         
     } 
@@ -63,3 +68,4 @@ buttonSubmit.addEventListener('click', send)
 buttonLocalSubmit.addEventListener('click', sendToLocal)
 
 
+console.log(send)
