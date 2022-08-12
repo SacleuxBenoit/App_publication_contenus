@@ -7,7 +7,6 @@ fetch("https://127.0.0.1:8000/api/categories", {
     .then(function (categories){
         var categoryList = categories["hydra:member"];
         categoryList.forEach(category => {
-            // console.log(category.articles);
             var articleAssigned = category.articles.length;
             if (articleAssigned == 1) {
                 console.log(articleAssigned)
