@@ -4,47 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/createArticle.css">
-    <script src="scriptCreate.js" defer></script>
+    <link rel="stylesheet" href="createArticle.css">
+    <script src="createArticle.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <h1>créer un article</h1>
-    <form action="" method="post">
-      <div>
-        <label for="title"> Titre: </label>
-       <input type="text" name="title" id="formTitle" placeholder="tarte aux raisins">
-      </div>
-      <div>
-        <label for="body">Body: </label>
-        <input type="text" name="body" id="formBody" placeholder="délice qui rendra la famille complètement tarte!">
-      </div>
-      <div>
-        <label for="tags">Tags: </label>
-        <input type="text" id="formTags" placeholder="cuisine francaise">
-      </div>
-      <div>
-        <label for="tags">Tags2: </label>
-        <input type="text" id="formTags2" placeholder="délice sucré">
-      </div>
-      <div>
-        <label for="category">Category: </label>
-        <input type="text" name="category" id="formCategory" placeholder="patisserie">
-      </div>
-        <label for="writer"> auteur:</label>
-        <input type="mail" id="formWriter" placeholder="philippe.etchebest@gmail.com">
-      </div>
-      <div>
-        <label for="date"> date:</label>
-        <input type="date" id="formDate">
-      </div>
-    </form>
-    <button id="submit" >
+
+    <div class="form">
+      <form action="" method="post">
+        <div>
+          <label for="title"> Titre: </label>
+         <input type="text" name="title" id="formTitle" placeholder="tarte aux raisins">
+        </div>
+        <div>
+          <label for="body">Body: </label>
+          <textarea name="body" id="formBody" cols="30" rows="5" placeholder="ce dessert vous rendra complètement tarte!!"></textarea>
+        </div>
+        <div>
+          <label for="tags">Tags: </label>
+          <div id="formTags">
+            des tags seront générés automatiquement
+            <input type="checkbox">
+          </div>
+        </div>
+        <div>
+          <label for="category">Category: </label>
+          <select name="category" id="formCategory">
+            <option value="select">--sélectionnez une catégorie--</option>
+          </select>
+        </div>
+          <label for="writer">auteur:</label>
+          <input type="mail" id="formWriter" placeholder="philippe.etchebest@gmail.com">
+        </div>
+        <div> 
+          <label for="date"> date:</label>
+          <input type="date" id="formDate">
+        </div>
+      </form>
+    </div>
+    <div class="buttons">
+      <button id="submit" >
         créer l'article
     </button>
     <button  id="submitLocal">
       créer l'article en local
     </button>
+    </div>
+    
     <!--penser à faire un dropdown pour les tags-->
 </body>
 </html>
