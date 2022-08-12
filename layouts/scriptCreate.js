@@ -14,7 +14,9 @@ let fetchURL = 'https://127.0.0.1:8000/api/articles'
 
 
 function send() { 
-    
+    const articleDropdown = async function (event) {
+        tagsList = []
+    }
     //paramètres enregistrés en BDD
     var parameters = {
         "title": getTitle.value,
@@ -27,8 +29,7 @@ function send() {
         "publishedAt": getDate.value
         
     } 
-    /*je fetche l'URL en paramètre de ma variable fetchURL, le header est l'une des conditions d'un CORS
-fonctionnel, l'autre*/
+    /*url fetching*/
     fetch(fetchURL, { 
     method: "POST",
     headers: {
