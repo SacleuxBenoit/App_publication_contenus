@@ -12,18 +12,29 @@ const fetchURL = 'https://127.0.0.1:8000/api/articles';
 const fetchTags = 'https://127.0.0.1:8000/api/tags/';
 const fetchCategories ='https://127.0.0.1:8000/api/categories';
 
+
 //get data from API to fill dropdown
+let catArray= [] 
 function Categories() { 
 //fetch URL categories
+
   fetch(fetchCategories, {
     method: 'GET', 
     headers: {
         'Content-Type': 'application/json'
         }
-    })  .then(function (response) { console.log(response) });
+    }) 
+    .then() 
+    .then(function (response) {console.log(response) });
 };
+catArray.forEach(element => {
+    // this.Categories()
+});
+
+//get data from API to populate checkbox
 
 
+//send data to the API
 
 //send data in localStorage
 function sendToLocal(){
@@ -46,4 +57,4 @@ function sendToLocal(){
 //eventlisteners
 // buttonSubmit.addEventListener('click', send)
 buttonLocalSubmit.addEventListener('click', sendToLocal)
-
+getCategory.addEventListener('click',Categories)

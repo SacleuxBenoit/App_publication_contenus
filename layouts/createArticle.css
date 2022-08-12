@@ -1,3 +1,9 @@
 h1 {
     text-align: center;
 }
+body {
+    background-color: #2C3639;
+}
+form, .buttons {
+    background-color: antiquewhite;
+}
