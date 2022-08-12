@@ -1,5 +1,5 @@
-let buttonNextPage = document.getElementById('buttonNextPage');
-let containerArticle = document.getElementById('containerArticle');
+const buttonNextPage = document.getElementById('buttonNextPage');
+const containerArticle = document.getElementById('containerArticle');
 let URIapi = 'https://127.0.0.1:8000/api/articles?page=';
 
 // var that will be increment when press button (voir plus)
@@ -78,6 +78,8 @@ let displayArticle = function() {
 
     return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes, seconds].join(':');
 }
+
+// change page each time we click on buttonNextPage
 
 function nextPage() {
   pageNumber += 1;
