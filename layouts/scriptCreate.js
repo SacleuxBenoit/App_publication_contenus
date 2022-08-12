@@ -20,7 +20,7 @@ function send() {
         "title": getTitle.value,
         "body": getBody.value,
         "tags": [
-                '/api/tags'+  getTags.value, getTags2.value
+                '/api/tags/'+  getTags.value, getTags2.value
             ],
         "category":  "/api/categories/" + getCategory.value,
         "writer":  "/api/writers/" + getWriter.value,
@@ -36,7 +36,7 @@ fonctionnel, l'autre*/
     },
      body: JSON.stringify(parameters)
     })
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then(function(articles)  {
         console.log(articles)
     })
