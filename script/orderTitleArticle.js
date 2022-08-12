@@ -62,8 +62,7 @@ let displayArticle = function() {
         day = '' + article_date.getDate(),
         year = article_date.getFullYear(),
         hours = '' + article_date.getHours(),
-        minutes = '' + article_date.getMinutes(),
-        seconds = '' + article_date.getSeconds();
+        minutes = '' + article_date.getMinutes()
 
     if (month.length < 2)
         month = '0' + month;
@@ -73,10 +72,8 @@ let displayArticle = function() {
         hours = '0' + hours;
     if (minutes.length < 2)
         minutes = '0' + minutes;
-    if (seconds.length < 2)
-        seconds = '0' + seconds;
 
-    return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes, seconds].join(':');
+    return 'publié le ' + [day, month, year].join('-') + ' à ' + [hours, minutes].join(':');
 }
 
 // change page each time we click on buttonNextPage
