@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../script/back-office/deleteArticle.js" defer></script>
+    <link rel="stylesheet" href="../../css/back-office/article.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="containerArticle border-2">
+        <div class="ml-2 my-4">
+            <p>
+                <label for="titleArticle" class="bg-content border border-black text-2xl">Titre</label>
+                <input type="text" name="titleArticle" id="titleArticle" class="bg-content border border-black text-2xl">
+            </p>
     
+            <p>
+                <label for="AuteurArticle" class="bg-content border border-black text-2xl">Auteur</label>
+                <input type="text" name="AuteurArticle" id="AuteurArticle" class="bg-content border border-black text-2xl">
+            </p>
+    
+            <p>
+                <label for="dateArticle" class="bg-content border border-black text-2xl">Date</label>
+                <input type="date" name="dateArticle" id="dateArticle" class="bg-content border border-black text-2xl">
+            </p>
+            
+            <p>
+                <button class="bg-content border border-black text-2xl">Delete</button>
+            </p>
+        </div>
+
+    </div>
 </body>
 </html>
