@@ -19,17 +19,27 @@ function Categories() {
 //fetch URL categories
 
   fetch(fetchCategories, {
-    method: 'GET', 
-    headers: {
-        'Content-Type': 'application/json'
-        }
+    //asynchronous function (executes at it's own rhythm)
+    method: 'GET'
     }) 
-    .then() 
-    .then(function (response) {console.log(response) });
+    //returns the json response, whiwh is in the log in the inspector, and is also asynchronous
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (responseJSON){
+        console.log(responseJSON)
+        console.log(responseJSON[`hydra:member`])
+        responseJSON[`hydra:member`].forEach(category => {
+            console.log(`${category.name}`)
+            // 
+            let newOpt = document.createElement("option");
+            newOpt.textContent = `${category.name}`
+            getCategory.appendChild(newOpt); 
+
+        });
+    });
 };
-catArray.forEach(element => {
-    // this.Categories()
-});
+
 
 //get data from API to populate checkbox
 
