@@ -12,8 +12,6 @@ const fetchURL = 'https://127.0.0.1:8000/api/articles';
 const fetchTags = 'https://127.0.0.1:8000/api/tags/';
 const fetchCategories ='https://127.0.0.1:8000/api/categories';
 
-
-
 function Categories() { 
 //fetch URL categories
 
@@ -41,7 +39,6 @@ function Categories() {
     });
 };
 
-
 //get data from API to populate checkbox
 function Tags() {
     fetch(fetchTags, {
@@ -67,17 +64,21 @@ function Tags() {
     })
 }
 
-
-
 //send data to the API
 function sendToAPI() {
-    
+
+    const checkboxes = document.querySelectorAll('input[type=checkbox]')
+    console.log(checkboxes)
     //sets all the propreties that will be added to the database
     var requestBody =  {
         "title": getTitle.value,
         "body": getBody.value,
-        "category": Categories[newOpt.value],//get the id from the dropdown elements
-        "tags": Tags[newTag.value],//get the id from the tags
+        "category": getCategory.value,//get the id from the dropdown elements
+        "tags": checkboxes.forEach(checkbox  => {
+            checkboxValues = []
+            checkboxValues.push(`${getTags.id}`)
+          console.log(checkboxValues)
+        }),
         "writer": getWriter.value,
         "publishedAt": getDate.value
     }
@@ -102,10 +103,8 @@ function sendToAPI() {
     window.alert('article créé');
    }
     });
-
-
- 
 }
+
 //send data in localStorage
 function sendToLocal(){
     /*sends data in localStorage(unlike sessionStorage, localStorage is persistent)*/
