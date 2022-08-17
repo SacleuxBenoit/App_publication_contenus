@@ -16,11 +16,15 @@
     <header class="grid text-xl h-16 pl-12">
         <ul class="grid grid-cols-3 lg:grid-cols-6">
             <li> 
-                <select id="select" class="categorieHeader m-4 lg:w-3/4 text-center">
-                    <option>Chosissez votre Catégorie</option>
+                <select id="selectCategories" class="categorieHeader m-4 lg:w-3/4 text-center">
+                    <option disabled>Catégories ↓</option>
                 </select>
             </li>
-            <li class="tagHeader m-4 lg:w-2/4 text-center rounded-full">Tag</li>
+            <li>
+                <select id="selectTags" class="tagHeader m-4 lg:w-2/4 text-center rounded-full">
+                    <option>Tags ↓</option>
+                </select>
+            </li>
             <li class="titleHeader text-center m-4">Titre projet</li>
         </ul>
     </header>
