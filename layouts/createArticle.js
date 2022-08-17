@@ -96,7 +96,7 @@ function sendToAPI() {
     .then(function(response) {
            //condition to vcheck the response from the API
    if (response.status != 200) {
-    window.alert('il y a dela friture sur la ligne! la requete ne peut etre effectuée');
+    window.alert('il y a dela friture sur la ligne! l\'article ne peut pas etre créé');
    }
    else {
     window.alert('article créé');
