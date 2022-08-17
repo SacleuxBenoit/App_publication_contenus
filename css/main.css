@@ -1,6 +1,16 @@
 body{
     background-color: #2C3639;
 }
+
+/* Header */
+header{
+  background-color: #A27B5C;
+}
+
+.categorieHeader, .tagHeader, .titleHeader{
+  background-color: #DCD7C9;
+}
+
 /* nuage categories */
 #cloudCategories{
   margin: 20px;
