@@ -137,5 +137,5 @@ function sendToLocal(){
 
 buttonSubmit.addEventListener('click', sendToAPI)
 buttonLocalSubmit.addEventListener('click', sendToLocal)
-getCategory.addEventListener('click',Categories)
+document.addEventListener('DOMContentLoaded',Categories)
 document.addEventListener('DOMContentLoaded',Tags)
