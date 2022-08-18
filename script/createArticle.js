@@ -82,11 +82,7 @@ function sendToAPI() {
         "title": getTitle.value,
         "body": getBody.value,
         "category": getCategory.value,//get the id from the dropdown elements
-        "tags": checkboxes.forEach(checkbox  => {
-         if (newTag.checked === True) {
-            
-         } 
-        }),
+        "tags": tagsList,
         "writer": getWriter.value,
         "publishedAt": getDate.value
     }

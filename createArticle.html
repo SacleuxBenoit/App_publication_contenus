@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/createArticle.css">
-    <script src="/script/createArticle.js" defer></script>
+    <link rel="stylesheet" href="css/createArticle.css">
+    <script src="script/createArticle.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,11 +14,11 @@
       <form action="" method="post">
         <div>
           <label for="title"> Titre: </label>
-         <input type="text" name="title" id="formTitle" placeholder="tarte aux raisins">
+         <input type="text" name="title" id="formTitle" placeholder="Nom de l’article">
         </div>
         <div>
           <label for="body">Body: </label>
-          <textarea name="body" id="formBody" cols="30" rows="5" placeholder="ce dessert vous rendra complètement tarte!!"></textarea>
+          <textarea name="body" id="formBody" cols="30" rows="5" placeholder="Corps de texte de l’article"></textarea>
         </div>
         <div>
           <label for="tags">Tags: </label>
@@ -32,8 +32,9 @@
             <option value="select">--sélectionnez une catégorie--</option>
           </select>
         </div>
+        <div>
           <label for="writer">auteur:</label>
-          <input type="mail" id="formWriter" placeholder="philippe.etchebest@gmail.com">
+          <input type="mail" id="formWriter" disabled value="api/writers/1" placeholder="philippe.etchebest@gmail.com">
         </div>
         <div> 
           <label for="date">date:</label>
