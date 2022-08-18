@@ -75,9 +75,9 @@ function sendToAPI() {
         "body": getBody.value,
         "category": getCategory.value,//get the id from the dropdown elements
         "tags": checkboxes.forEach(checkbox  => {
-            checkboxValues = []
-            checkboxValues.push(`${getTags.id}`)
-          console.log(checkboxValues)
+         if (newTag.checked === True) {
+            
+         } 
         }),
         "writer": getWriter.value,
         "publishedAt": getDate.value
