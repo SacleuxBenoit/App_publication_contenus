@@ -12,6 +12,8 @@ const fetchURL = 'https://127.0.0.1:8000/api/articles';
 const fetchTags = 'https://127.0.0.1:8000/api/tags/';
 const fetchCategories ='https://127.0.0.1:8000/api/categories';
 
+const enabledWriterDisabled = getWriter.removeAttribute('disabled')
+
 function Categories() { 
 //fetch URL categories
 
@@ -79,12 +81,12 @@ function sendToAPI() {
     console.log(tagsList)
     //sets all the propreties that will be added to the database
     var requestBody =  {
-        "title": getTitle.value,
-        "body": getBody.value,
-        "category": getCategory.value,//get the id from the dropdown elements
-        "tags": tagsList,
-        "writer": getWriter.value,
-        "publishedAt": getDate.value
+         "title" : getTitle.value,
+         "body" : getBody.value,
+        "category" : getCategory.value,//get the id from the dropdown elements
+        "tags" : tagsList,
+        writer : getWriter.value,
+        publishedAt : getDate.value
     }
     console.log(requestBody)
 
