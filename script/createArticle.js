@@ -33,7 +33,7 @@ function Categories() {
             console.log(category)
             let newOpt = document.createElement("option");
             newOpt.textContent = `${category.name}`
-            newOpt.value=`${category.id}`
+            newOpt.value=`${category['@id']}`
             getCategory.appendChild(newOpt); 
         });
     });
@@ -56,7 +56,7 @@ function Tags() {
             let newTagDiv = document.createElement("div");
             let newTag = document.createElement('input');
             newTag.type='checkbox';
-            newTag.value = `${tag.id}`;
+            newTag.value = `${tag['@id']}`;
             newLabel.innerHTML = `${tag.name}`;
             getTags.append(newLabel, newTag);
             console.log(tag)
@@ -69,6 +69,14 @@ function sendToAPI() {
 
     const checkboxes = document.querySelectorAll('input[type=checkbox]')
     console.log(checkboxes)
+    // We prepare the tags list
+    const tagsList = Array()
+    checkboxes.forEach(checkbox => {
+        if(checkbox.checked) {
+            tagsList.push(checkbox.value)
+        }
+    })
+    console.log(tagsList)
     //sets all the propreties that will be added to the database
     var requestBody =  {
         "title": getTitle.value,
@@ -96,8 +104,8 @@ function sendToAPI() {
     //this "then" is here to check the response
     .then(function(response) {
            //condition to vcheck the response from the API
-   if (response.status != 200) {
-    window.alert('il y a dela friture sur la ligne! l\'article ne peut pas etre créé');
+   if (response.status != 201) {
+    window.alert('Une erreur est survenue à la création de l’article');
    }
    else {
     window.alert('article créé');
@@ -133,5 +141,5 @@ function sendToLocal(){
 
 buttonSubmit.addEventListener('click', sendToAPI)
 buttonLocalSubmit.addEventListener('click', sendToLocal)
-getCategory.addEventListener('click',Categories)
+document.addEventListener('DOMContentLoaded',Categories)
 document.addEventListener('DOMContentLoaded',Tags)
