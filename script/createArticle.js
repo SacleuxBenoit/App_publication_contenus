@@ -12,8 +12,12 @@ const fetchURL = 'https://127.0.0.1:8000/api/articles';
 const fetchTags = 'https://127.0.0.1:8000/api/tags/';
 const fetchCategories ='https://127.0.0.1:8000/api/categories';
 
-const enabledWriterDisabled = getWriter.removeAttribute('disabled')
 
+//remove useless attributes
+const RemoveWriterDisabled = getWriter.removeAttribute('disabled')
+const RemoveWritterValueHTML = getWriter.removeAttribute('value')
+
+//function to fetch categories from API , and put in dropdown.
 function Categories() { 
 //fetch URL categories
 
