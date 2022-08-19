@@ -6,11 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./script/orderTitleArticle.js" defer></script>
     <script src="/script/app.js" defer></script>
+    <script src="./script/header.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
 <body>
+
+    <header class="grid text-xl h-16 lg:pl-12">
+        <ul class="grid grid-cols-3 lg:grid-cols-6">
+            <li> 
+                <select id="selectCategories" class="categorieHeader text-center w-11/12 h-full lg:w-auto lg:m-6 lg:h-auto lg:rounded-full">
+                    <option>Catégorie</option>
+                </select>
+            </li>
+            <li>
+                <select id="selectTags" class="tagHeader text-center w-11/12 h-full lg:m-4 lg:w-3/4 lg:h-2/4 lg:rounded-full">
+                    <option>Tags</option>
+                </select>
+            </li>
+            <li class="titleHeader text-center w-11/12 h-full pt-4 lg:pt-0 lg:m-4 lg:w-3/4 lg:h-2/4">Titre projet</li>
+        </ul>
+    </header>
     <div id="cloudCategories">
         <ul id="listeCategories">
 
