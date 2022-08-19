@@ -71,49 +71,50 @@ function Tags() {
 }
 
 //send data to the API
-function sendToAPI() {
+    function sendToAPI() {
 
-    const checkboxes = document.querySelectorAll('input[type=checkbox]')
-    console.log(checkboxes)
-    // We prepare the tags list
-    const tagsList = Array()
-    checkboxes.forEach(checkbox => {
-        if(checkbox.checked) {
-            tagsList.push(checkbox.value)
+        const checkboxes = document.querySelectorAll('input[type=checkbox]')
+        console.log(checkboxes)
+        // We prepare the tags list
+        const tagsList = Array()
+        checkboxes.forEach(checkbox => {
+            if(checkbox.checked) {
+                tagsList.push(checkbox.value)
+            }
+        })
+        console.log(tagsList)
+        //sets all the propreties that will be added to the database
+        var requestBody =  {
+            "title" : getTitle.value,
+            "body" : getBody.value,
+            "category" : getCategory.value,//get the id from the dropdown elements
+            "tags" : tagsList,
+            "writer" : getWriter.value,
+            "publishedAt" : getDate.value
         }
-    })
-    console.log(tagsList)
-    //sets all the propreties that will be added to the database
-    var requestBody =  {
-         "title" : getTitle.value,
-         "body" : getBody.value,
-        "category" : getCategory.value,//get the id from the dropdown elements
-        "tags" : tagsList,
-        writer : getWriter.value,
-        publishedAt : getDate.value
-    }
-    console.log(requestBody)
+        console.log(requestBody)
 
-    //fetch the API URL to create the article
-    fetch(fetchURL, {
-        //required to be able to send data without being blocked by the CORS
-        method: 'POST', 
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    })
-    //this "then" is here to check the response
-    .then(function(response) {
-           //condition to vcheck the response from the API
-   if (response.status != 201) {
-    window.alert('Une erreur est survenue à la création de l’article');
-   }
-   else {
-    window.alert('article créé');
-   }
-    });
-}
+        //fetch the API URL to create the article
+        fetch(fetchURL, {
+            //required to be able to send data without being blocked by the CORS
+            method: 'POST', 
+            headers: {
+                "content-type": 'application/json'
+                
+            },
+            body: JSON.stringify(requestBody)
+        })
+        //this "then" is here to check the response
+        .then(function(response) {
+            //condition to manage response from API 
+    if (response.status != 201) {
+        window.alert('Une erreur est survenue à la création de l’article');
+    }
+    else {
+        window.alert('article créé');
+    }
+        });
+    }
 
 //send data in localStorage
 function sendToLocal(){
@@ -135,7 +136,6 @@ function sendToLocal(){
 
     localStorage.setItem("date", getDate.value)
     let dateItem = localStorage.getItem("date")
-    //faire de la gestion d'erreurs
 }
 
 
