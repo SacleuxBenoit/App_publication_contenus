@@ -9,7 +9,6 @@ fetch("https://127.0.0.1:8000/api/categories", {
         categoryList.forEach(category => {
             var articleAssigned = category.articles.length;
             if (articleAssigned == 1) {
-                console.log(articleAssigned)
                 var rand = 1;
             } else if (articleAssigned == 2){
                 var rand = 2;
@@ -36,10 +35,7 @@ fetch("https://127.0.0.1:8000/api/tags", {
         var tagsList = tags["hydra:member"];
         tagsList.forEach(tag => {
             var tagAssigned = tag.articles.length;
-            console.log(tagAssigned)
-            console.log(tagAssigned);
             if (tagAssigned == 1) {
-                console.log(tagAssigned)
                 var rand = 1;
             } else if (tagAssigned == 2){
                 var rand = 2;
