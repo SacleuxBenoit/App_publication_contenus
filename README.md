@@ -1,11 +1,12 @@
 # Le projet 
 
-`App_publication_contenus` est un projet basé sur un cahier des charges fictif pour nous apprendres à travailler en groupes.
+`App_publication_contenus` est un projet basé sur un cahier des charges fictif pour nous apprendre à travailler en groupes.
 
 ## Sommaire
 
 1. [Les technos](#technos)
-2. [Qui sommes-nous](#a-propos)
+2. [organisation](#organisation)
+3. [Qui sommes-nous](#a-propos)
 
 ## Les technos <a id="technos"></a>
 
@@ -15,9 +16,19 @@
 *   `Html, Css` et `Tailwind` pour la partie front
 *   `Symfony` et `Api plateform` pour la partie back
 
+
+## Organisation du projet
+
+Voici les étapes que nous avons effectuées pour gérer notre organisation
+
+-   Analyse du cahier des charges
+-   Création du Trello
+-   Répartition des tâches
+-   Choix des technos
+
 ##  Qui sommes-nous <a id="a-propos"></a>
 
-Ce projet à était réalisé par : 
+Ce projet a été réalisé par : 
 
 *   [Alexandre Chuffart](https://github.com/alex62320)
 *   [Benoît Sacleux](https://github.com/SacleuxBenoit)
