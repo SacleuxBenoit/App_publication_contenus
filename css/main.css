@@ -13,29 +13,17 @@ header{
 
 /* nuage categories */
 #cloudCategories{
-  margin: 20px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background:#DCD7C9;
-  border-radius:50%;
   width:420px;
   height:420px;
   border:2px solid #A27B5C;
 }
   
 #listeCategories {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     line-height: 15px;
-    height: 260px;
-    width: 330px;
-  }
+    height: 240px;
+    width: 300px;
+}
 
 #listeCategories a{
     --size: attr(data-weight number); 
@@ -47,7 +35,7 @@ header{
     padding: 0.125rem 0.25rem;
     position: relative;
     text-decoration: none;
-  }
+}
 
 #listeCategories a[data-weight="0"] { display: none; }
 #listeCategories a[data-weight="1"] { --size: 1; }
@@ -60,11 +48,11 @@ header{
 ul[data-show-value] a::after {
     content: " (" attr(data-weight) ")";
     font-size: 1rem;
-  }
+}
   
 #listeCategories a:focus {
     outline: 1px dashed;
-  }
+}
   
 #listeCategories a::before {
     content: "";
@@ -77,42 +65,29 @@ ul[data-show-value] a::after {
     transform: translate(-50%, 0);
     opacity: 0.15;
     transition: width 0.25s;
-  }
+}
   
 #listeCategories a:focus::before,
 #listeCategories a:hover::before {
     width: 100%;
-  }
+}
   
   @media (prefers-reduced-motion) {
     #listeTag * {
       transition: none !important;
     }
-  }
+}
 
 /* nuage tags */
 
 #cloudTags{
-  margin: 20px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background:#DCD7C9;
-  border-radius:50%;
   width:420px;
   height:420px;
   border:2px solid #A27B5C;
 }
 
 #listeTag {
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  line-height: 2.75rem;
   height: 255px;
   width: 325px;
   border-radius: 480px
