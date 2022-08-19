@@ -9,7 +9,7 @@
 3. [Qui sommes-nous](#a-propos)
 4. [partie anglaise](#english)
 
-## Les technos <a id="technos"></a>
+## Les technos <a id="technos"></a>
 
 *   `Git` - pour le versionning
 *   `Trello` pour l'organisation entre nous
@@ -37,7 +37,7 @@ Ce projet a été réalisé par :
 
 nous sommes des étudiants en formation chez [PopSchool](https://popschool.fr/)
 
-# Project <a id="english"></a>
+# English part <a id="english"></a>
 
 ## Summary
 
