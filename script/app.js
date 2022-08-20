@@ -8,11 +8,11 @@ fetch("https://127.0.0.1:8000/api/categories", {
         let categoryList = categories["hydra:member"];
         categoryList.forEach(category => {
             let articleAssigned = category.articles.length;
-            if (articleAssigned == 1) {
+            if (articleAssigned === 1) {
                 var rand = 1;
-            } else if (articleAssigned == 2){
+            } else if (articleAssigned === 2){
                 var rand = 2;
-            } else if (articleAssigned == 3){
+            } else if (articleAssigned === 3){
                 var rand = 3;
             }else if (articleAssigned >= 4){
                 var rand = 5;
@@ -35,13 +35,13 @@ fetch("https://127.0.0.1:8000/api/tags", {
         let tagsList = tags["hydra:member"];
         tagsList.forEach(tag => {
             let tagAssigned = tag.articles.length;
-            if (tagAssigned == 1) {
+            if (tagAssigned === 1) {
                 var rand = 1;
-            } else if (tagAssigned == 2){
+            } else if (tagAssigned === 2){
                 var rand = 2;
             } else if (tagAssigned >= 4){
                 var rand = 3;
-            }else if (tagAssigned == 6){
+            }else if (tagAssigned === 6){
                 var rand = 4;
             }else if (tagAssigned >= 8){
                 var rand = 5;
