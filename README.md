@@ -4,10 +4,10 @@
 
 ## Sommaire
 
-1. [Les technos](#technos)
-2. [organisation](#organisation)
-3. [Qui sommes-nous](#a-propos)
-4. [partie anglaise](#english)
+1.  [Les technos](#technos)
+2.  [organisation](#organisation)
+3.  [Qui sommes-nous](#a-propos)
+4.  [partie anglaise](#english)
 
 ## Les technos <a id="technos"></a>
 
@@ -16,7 +16,6 @@
 *   `Figma` pour la partie maquettage du site
 *   `Html, Css` et `Tailwind` pour la partie front
 *   `Symfony` et `Api plateform` pour la partie back
-
 
 ## Organisation du projet <a id="organisation"></a>
 
@@ -27,7 +26,7 @@ Voici les étapes que nous avons effectuées pour gérer notre organisation
 -   Répartition des tâches
 -   Choix des technos
 
-##  Qui sommes-nous <a id="a-propos"></a>
+## Qui sommes-nous <a id="a-propos"></a>
 
 Ce projet a été réalisé par : 
 
@@ -37,14 +36,14 @@ Ce projet a été réalisé par :
 
 nous sommes des étudiants en formation chez [PopSchool](https://popschool.fr/)
 
-# English part <a id="english"></a>
+## English part <a id="english"></a>
 
 ## Summary
 
-1. [The technos](#technosEN)
-2. [organization](#organization)
-3. [About us](#aboutUs)
-4. [French part](#french)
+1.  [The technos](#technosEN)
+2.  [organization](#organization)
+3.  [About us](#aboutUs)
+4.  [French part](#french)
 
 ## The technos <a id="technosEN"></a>
 
@@ -58,10 +57,10 @@ nous sommes des étudiants en formation chez [PopSchool](https://popschool.fr/)
 
 Here is the step that we did to manage our organization
 
--   Analysis of the specifications
--   Creation of Trello
--   Distribution of tasks
--   Choose our technos
+*   Analysis of the specifications
+*   Creation of Trello
+*   Distribution of tasks
+*   Choose our technos
 
 ## About us <a id="aboutUs"></a>
 
